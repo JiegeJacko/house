@@ -13,8 +13,7 @@ if __name__ == "__main__":
             case "1":
                 add_house()
             case "2":
-                print("2 hahaa")
-                pass
+                del_houses()
             case "3":
                 pass
             case "4":
