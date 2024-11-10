@@ -21,6 +21,7 @@ houses = [
     "status": False
 },
 ]
+_id = 1
 
 def main_menu():
     """
@@ -35,6 +36,39 @@ def main_menu():
     print("4. 查找房屋")
     print("5. 列出房屋")
     print("6. 退出")
+
+
+def add_house():
+    """添加房屋"""
+    print("添加房屋".center(55, "-"))
+
+    global _id
+    new_house = {
+    "id": _id,
+    "name": None,
+    "tel": None,
+    "addr": None,
+    "rent": None,
+    "status": None
+    }
+    
+    new_house["name"] = input("姓名: ")        
+    new_house["tel"] = input("电话: ")        
+    new_house["addr"] = input("地址: ")        
+    new_house["rent"] = input("月租: ")        
+
+    while True:
+        tmp = input("是否出租（y 或 n）: ")        
+        if tmp.upper() in ["Y", "YES"]:
+            new_house["status"] = True
+            break
+        elif tmp.upper() in ["N", "NO"]:
+            new_house["status"] = False
+            break
+        else:
+            continue
+    houses.append(new_house)
+    _id += 1
 
 
 def list_houses():

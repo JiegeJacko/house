@@ -11,7 +11,7 @@ if __name__ == "__main__":
         key = input("请选择(1~6): ")
         match key:
             case "1":
-                pass
+                add_house()
             case "2":
                 print("2 hahaa")
                 pass
