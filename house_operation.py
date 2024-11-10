@@ -61,6 +61,37 @@ def add_house():
         
     new_house = House(name, tel, addr, rent, status)
     houses.append(new_house)
+    
+    
+def del_houses():
+    """删除房屋"""
+    print("删除房屋".center(55, "-"))
+
+    while True:
+        id = input("编号: ")
+        try:
+            id = int(id)
+        except ValueError:
+            print("请正确输入编号")
+            continue
+
+        for house in houses:
+            if id == house.id:
+                break
+        else:
+            print("编号不存在，请重新输入")
+            continue
+        break
+    
+    while True:
+        tmp = input("是否删除该房屋（y 或 n）: ")        
+        if tmp.upper() in ["Y", "YES"]:
+            houses.remove(house)
+            break
+        elif tmp.upper() in ["N", "NO"]:
+            break
+        else:
+            continue
 
 
 def list_houses():
