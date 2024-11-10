@@ -2,26 +2,27 @@
 显示对房屋操作的主菜单
 提供对房屋的各种操作(增、删、改、查)
 """
-
-houses = [
-{
-    "id": 2,
-    "name": "tim",
-    "tel": "113",
-    "addr": "罗湖",
-    "rent": 2000,
-    "status": True
-},
-{
-    "id": 3,
-    "name": "bee",
-    "tel": "116",
-    "addr": "南山",
-    "rent": 3000,
-    "status": False
-},
-]
 _id = 1
+class House:
+    """模拟房子"""
+    def __init__(self, name: str, tel: str,
+            addr: str, rent: int, status: bool):
+        global _id
+        self.id = _id
+        self.name = name
+        self.tel = tel
+        self.addr = addr
+        self.rent = rent
+        self.status = status
+        _id += 1
+
+
+houses = []        
+h1 = House("tim", "113", "罗湖", 2000, True)
+h2 = House("bee", "116", "南山", 3000, False)
+houses.append(h1)
+houses.append(h2)
+
 
 def main_menu():
     """
@@ -42,33 +43,24 @@ def add_house():
     """添加房屋"""
     print("添加房屋".center(55, "-"))
 
-    global _id
-    new_house = {
-    "id": _id,
-    "name": None,
-    "tel": None,
-    "addr": None,
-    "rent": None,
-    "status": None
-    }
-    
-    new_house["name"] = input("姓名: ")        
-    new_house["tel"] = input("电话: ")        
-    new_house["addr"] = input("地址: ")        
-    new_house["rent"] = input("月租: ")        
+    name = input("姓名: ")        
+    tel = input("电话: ")        
+    addr = input("地址: ")        
+    rent = input("月租: ")        
 
     while True:
         tmp = input("是否出租（y 或 n）: ")        
         if tmp.upper() in ["Y", "YES"]:
-            new_house["status"] = True
+            status = True
             break
         elif tmp.upper() in ["N", "NO"]:
-            new_house["status"] = False
+            status = False
             break
         else:
             continue
+        
+    new_house = House(name, tel, addr, rent, status)
     houses.append(new_house)
-    _id += 1
 
 
 def list_houses():
@@ -76,6 +68,10 @@ def list_houses():
     print("房屋列表".center(55, "-"))
     print("编号\t房主\t电话\t地址\t月租\t状态（是否出租）")
     for house in houses:
-        for value in house.values():
-            print(value, end='\t')
+        print(house.id, end='\t')
+        print(house.name, end='\t')
+        print(house.tel, end='\t')
+        print(house.addr, end='\t')
+        print(house.rent, end='\t')
+        print(house.status, end='\t')
         print()
