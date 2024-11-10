@@ -20,7 +20,7 @@ if __name__ == "__main__":
             case "4":
                 pass
             case "5":
-                pass
+                list_houses()
             case _:
                 break
     print("你退出了程序\n欢迎下次使用")
