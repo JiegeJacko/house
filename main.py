@@ -20,6 +20,9 @@ if __name__ == "__main__":
                 pass
             case "5":
                 list_houses()
-            case _:
+            case "6":
+                print("你退出了程序\n欢迎下次使用")
                 break
-    print("你退出了程序\n欢迎下次使用")
+            case _:
+                print("请正确输入选项！！！")
+                continue
