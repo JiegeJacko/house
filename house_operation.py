@@ -5,7 +5,7 @@
 
 houses = [
 {
-    "id": 2,
+    "id": 998,
     "name": "tim",
     "tel": "113",
     "addr": "罗湖",
@@ -13,7 +13,7 @@ houses = [
     "status": True
 },
 {
-    "id": 3,
+    "id": 999,
     "name": "bee",
     "tel": "116",
     "addr": "南山",
@@ -100,6 +100,26 @@ def del_houses():
             break
         else:
             continue
+
+
+def find_house():
+    """根据id查找房屋"""
+    print("查找房屋".center(55, "-"))
+    while True:
+        id = input("编号: ")
+        try:
+            id = int(id)
+        except ValueError:
+            print("请正确输入编号")
+            continue
+        print("编号\t房主\t电话\t地址\t月租\t状态（是否出租）")
+        for house in houses:
+            if house["id"] == id:
+                for value in house.values():
+                    print(value, end='\t')
+                print()
+                break
+        break
 
 
 def list_houses():
