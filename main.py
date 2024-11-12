@@ -17,7 +17,7 @@ if __name__ == "__main__":
             case "3":
                 pass
             case "4":
-                pass
+                find_house()
             case "5":
                 list_houses()
             case "6":

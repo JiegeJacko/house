@@ -94,6 +94,29 @@ def del_houses():
             continue
 
 
+def find_house():
+    """根据id查找房屋"""
+    print("查找房屋".center(55, "-"))
+    while True:
+        id = input("编号: ")
+        try:
+            id = int(id)
+        except ValueError:
+            print("请正确输入编号")
+            continue
+        print("编号\t房主\t电话\t地址\t月租\t状态（是否出租）")
+        for house in houses:
+            if house.id == id:
+                print(house.id, end='\t')
+                print(house.name, end='\t')
+                print(house.tel, end='\t')
+                print(house.addr, end='\t')
+                print(house.rent, end='\t')
+                print(house.status, end='\t')
+                print()
+        break
+
+
 def list_houses():
     """显示房屋列表"""
     print("房屋列表".center(55, "-"))
