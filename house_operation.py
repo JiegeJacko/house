@@ -119,6 +119,9 @@ def find_house():
                     print(value, end='\t')
                 print()
                 break
+        else:
+            print("编号不存在，请重新输入")
+            continue
         break
 
 
