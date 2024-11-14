@@ -15,7 +15,7 @@ if __name__ == "__main__":
             case "2":
                 del_houses()
             case "3":
-                pass
+                mdfy_house()
             case "4":
                 find_house()
             case "5":

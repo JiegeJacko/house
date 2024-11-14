@@ -94,6 +94,58 @@ def del_houses():
             continue
 
 
+def mdfy_house():
+    """修改房屋"""
+    print("修改房屋".center(55, "-"))
+
+    while True:
+        id = input("编号: ")
+        try:
+            id = int(id)
+        except ValueError:
+            print("请正确输入编号")
+            continue
+
+        for house in houses:
+            if id == house.id:
+                break
+        else:
+            print("编号不存在，请重新输入")
+            continue
+        break
+
+    name = input("姓名: ")        
+    tel = input("电话: ")        
+    addr = input("地址: ")        
+    rent = input("月租: ")        
+
+    while True:
+        tmp = input("是否出租（y 或 n）: ")        
+        if tmp: # 有内容
+            if tmp.upper() in ["Y", "YES"]:
+                status = True
+                break
+            elif tmp.upper() in ["N", "NO"]:
+                status = False
+                break
+            else:
+                continue
+        else: # 无内容
+            status = None
+            break
+        
+    if name:
+        house.name = name
+    if tel:
+        house.tel = tel 
+    if addr:
+        house.addr = addr 
+    if rent:
+        house.rent = rent
+    if status != None:
+        house.status = status
+    
+
 def find_house():
     """根据id查找房屋"""
     print("查找房屋".center(55, "-"))
